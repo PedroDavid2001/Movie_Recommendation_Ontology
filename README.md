@@ -8,7 +8,7 @@ Ontologia simples utilizada como exemplo no tutorial de Owlready2.
 
 A ontologia foi modelada em OntoUML utilizando o plugin de mesmo nome disponível no Visual Paradigm. Em seguida, o modelo foi exportado para o formato Turtle e refinado no Protégé. Por fim, a ontologia foi exportada em RDF/XML para ser manipulada em um ambiente Python por meio da biblioteca Owlready2.
 
-O principal objetivo deste exemplo é demonstrar a integração entre diferentes ferramentas para modelagem conceitual, engenharia ontológica e desenvolvimento de aplicações baseadas em conhecimento.
+O principal objetivo deste exemplo é demonstrar a integração entre diferentes ferramentas para modelagem conceitual, criação e manipulação de instâncias, bem como a execução de consultas SPARQL sobre uma ontologia.
 
 ### 🇺🇸 English
 
@@ -16,7 +16,7 @@ A simple ontology used as an example in the Owlready2 tutorial.
 
 The ontology was modeled in OntoUML using the corresponding Visual Paradigm plugin. The model was then exported to Turtle format and refined in Protégé. Finally, the ontology was exported as RDF/XML and manipulated in a Python environment using the Owlready2 library.
 
-The main goal of this example is to demonstrate the integration of different tools for conceptual modeling, ontology engineering, and knowledge-based application development.
+The main objective of this example is to demonstrate the integration of different tools for conceptual modeling, instance creation and manipulation, as well as the execution of SPARQL queries on an ontology.
 
 ---
 
