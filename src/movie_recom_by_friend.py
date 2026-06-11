@@ -8,6 +8,7 @@ onto_movies = get_ontology(PATH_TO_MY_ONTO).load()
 
 print(onto_movies.base_iri)
 
+# =================================================================
 # Instâncias de gêneros
 action = onto_movies.Action('action')
 drama = onto_movies.Drama('drama')
@@ -16,13 +17,7 @@ romance = onto_movies.Romance('romance')
 comedy = onto_movies.Comedy('comedy')
 horror = onto_movies.Horror('horror')
 
-
-
-
-
-
-
-
+# =================================================================
 # Ficção científica + ação
 matrix = onto_movies.Movie("matrix")
 matrix.belongs_To_Genre = [action, scifi]
@@ -113,12 +108,7 @@ predator.belongs_To_Genre = [horror, action]
 jumanji = onto_movies.Movie("jumanji")
 jumanji.belongs_To_Genre = [comedy, action]
 
-
-
-
-
-
-
+# =================================================================
 # lista de usuários
 alice = onto_movies.User("alice")
 bob = onto_movies.User("bob")
@@ -131,6 +121,7 @@ henry = onto_movies.User("henry")
 ivy = onto_movies.User("ivy")
 jack = onto_movies.User("jack")
 
+# =================================================================
 # lista de amizades
 alice.friend_Of = [bob, carol, david]
 bob.friend_Of = [alice, eve]
@@ -140,13 +131,7 @@ eve.friend_Of = [bob, henry]
 frank.friend_Of = [carol, ivy]
 grace.friend_Of = [david, jack]
 
-
-
-
-
-
-
-
+# =================================================================
 # Alice gosta de SciFi e Action
 p1 = onto_movies.Positive_Genre_Preference("p1")
 p1.mediatesUser = [alice]
@@ -204,6 +189,7 @@ n4 = onto_movies.Negative_Genre_Preference("n4")
 n4.mediatesUser = [bob]
 n4.mediatesGenre = [romance]
 
+# =================================================================
 sync_reasoner_hermit()
 
 usuario = alice
