@@ -30,22 +30,18 @@ The main objective of this example is to demonstrate the integration of differen
 
 ---
 
-### 2.2 User–Movie Relation
-
-> View responsible for representing social relationships between users and their genre preferences.
+### 2.2 User and Movie Genre Relation
 
 <p align="center">
-  <img src="docs/images/user_movie_relation.png" width="800">
+  <img src="utils\User and Movie Genre Relation.png" width="800">
 </p>
 
 ---
 
 ### 2.3 Movie Genres
 
-> View responsible for representing movie genres and genre-based movie classification.
-
 <p align="center">
-  <img src="docs/images/movie_genres.png" width="800">
+  <img src="utils/Movie Genres.png" width="800">
 </p>
 
 ---
