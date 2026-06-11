@@ -1,4 +1,4 @@
-# Movie_Recommendation_Ontology
+# Movie Recommendation Ontology
 
 ## 1. Description
 
