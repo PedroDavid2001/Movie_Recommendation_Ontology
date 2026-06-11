@@ -7,6 +7,7 @@ onto_movies = get_ontology(PATH_TO_MY_ONTO).load()
 
 print(onto_movies.base_iri)
 
+# =================================================================
 # Instâncias de gêneros
 action = onto_movies.Action()
 drama = onto_movies.Drama()
@@ -15,6 +16,7 @@ romance = onto_movies.Romance()
 comedy = onto_movies.Comedy()
 horror = onto_movies.Horror()
 
+# =================================================================
 # Ficção científica + ação
 matrix = onto_movies.Movie("matrix")
 matrix.belongs_To_Genre = [action, scifi]
@@ -105,6 +107,7 @@ predator.belongs_To_Genre = [horror, action]
 jumanji = onto_movies.Movie("jumanji")
 jumanji.belongs_To_Genre = [comedy, action]
 
+# =================================================================
 sync_reasoner_hermit()
 for i in range(1, 11): print('\n')
 
