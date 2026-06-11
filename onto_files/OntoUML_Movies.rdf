@@ -1,0 +1,773 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.com/MovieExample#"
+     xml:base="http://example.com/MovieExample"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:gufo="http://purl.org/nemo/gufo#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://example.com/MovieExample">
+        <owl:imports rdf:resource="http://purl.org/nemo/gufo#"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.com/MovieExample#Recommends -->
+
+    <owl:ObjectProperty rdf:about="http://example.com/MovieExample#Recommends">
+        <rdfs:domain rdf:resource="http://example.com/MovieExample#Movie_Recommendation_App"/>
+        <rdfs:range rdf:resource="http://example.com/MovieExample#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.com/MovieExample#belongs_To_Genre -->
+
+    <owl:ObjectProperty rdf:about="http://example.com/MovieExample#belongs_To_Genre">
+        <rdfs:domain rdf:resource="http://example.com/MovieExample#Movie"/>
+        <rdfs:range rdf:resource="http://example.com/MovieExample#Movie_Genre"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.com/MovieExample#friend_Of -->
+
+    <owl:ObjectProperty rdf:about="http://example.com/MovieExample#friend_Of">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://example.com/MovieExample#User"/>
+        <rdfs:range rdf:resource="http://example.com/MovieExample#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.com/MovieExample#has_Genre_Preference -->
+
+    <owl:ObjectProperty rdf:about="http://example.com/MovieExample#has_Genre_Preference">
+        <rdfs:domain rdf:resource="http://example.com/MovieExample#User"/>
+        <rdfs:range rdf:resource="http://example.com/MovieExample#Movie_Genre"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.com/MovieExample#mediatesGenre -->
+
+    <owl:ObjectProperty rdf:about="http://example.com/MovieExample#mediatesGenre">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdfs:domain rdf:resource="http://example.com/MovieExample#Genre_Preference"/>
+        <rdfs:range rdf:resource="http://example.com/MovieExample#Movie_Genre"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.com/MovieExample#mediatesUser -->
+
+    <owl:ObjectProperty rdf:about="http://example.com/MovieExample#mediatesUser">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+        <rdfs:domain rdf:resource="http://example.com/MovieExample#Genre_Preference"/>
+        <rdfs:range rdf:resource="http://example.com/MovieExample#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.com/MovieExample#receives_Recommendation_Of -->
+
+    <owl:ObjectProperty rdf:about="http://example.com/MovieExample#receives_Recommendation_Of">
+        <rdfs:domain rdf:resource="http://example.com/MovieExample#Movie"/>
+        <rdfs:range rdf:resource="http://example.com/MovieExample#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.com/MovieExample#recommends_To -->
+
+    <owl:ObjectProperty rdf:about="http://example.com/MovieExample#recommends_To">
+        <rdfs:domain rdf:resource="http://example.com/MovieExample#Movie_Recommendation_App"/>
+        <rdfs:range rdf:resource="http://example.com/MovieExample#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.com/MovieExample#Action -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#Action">
+        <rdfs:subClassOf rdf:resource="http://example.com/MovieExample#Movie_Genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#ActionMovie -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#ActionMovie">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.com/MovieExample#Movie"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.com/MovieExample#belongs_To_Genre"/>
+                        <owl:someValuesFrom rdf:resource="http://example.com/MovieExample#Action"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#Comedy -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#Comedy">
+        <rdfs:subClassOf rdf:resource="http://example.com/MovieExample#Movie_Genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#ComedyMovie -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#ComedyMovie">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.com/MovieExample#Movie"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.com/MovieExample#belongs_To_Genre"/>
+                        <owl:someValuesFrom rdf:resource="http://example.com/MovieExample#Comedy"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://example.com/MovieExample#Movie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#Drama -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#Drama">
+        <rdfs:subClassOf rdf:resource="http://example.com/MovieExample#Movie_Genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#DramaMovie -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#DramaMovie">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.com/MovieExample#Movie"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.com/MovieExample#belongs_To_Genre"/>
+                        <owl:someValuesFrom rdf:resource="http://example.com/MovieExample#Drama"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://example.com/MovieExample#Movie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#Genre_Preference -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#Genre_Preference">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://example.com/MovieExample#Movie_Genre"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://example.com/MovieExample#User"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://example.com/MovieExample#Movie_Recommendation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#Horror -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#Horror">
+        <rdfs:subClassOf rdf:resource="http://example.com/MovieExample#Movie_Genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#HorrorMovie -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#HorrorMovie">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.com/MovieExample#Movie"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.com/MovieExample#belongs_To_Genre"/>
+                        <owl:someValuesFrom rdf:resource="http://example.com/MovieExample#Horror"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://example.com/MovieExample#Movie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#Movie -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#Movie">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://example.com/MovieExample#Movie_Recommendation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#Movie_Genre -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#Movie_Genre">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://example.com/MovieExample#Genre_Preference"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#Movie_Recommendation -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#Movie_Recommendation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Relator"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:someValuesFrom rdf:resource="http://example.com/MovieExample#Movie"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:someValuesFrom rdf:resource="http://example.com/MovieExample#User"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://example.com/MovieExample#Movie_Recommendation_App"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#Movie_Recommendation_App -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#Movie_Recommendation_App">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://example.com/MovieExample#Movie_Recommendation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#Negative_Genre_Preference -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#Negative_Genre_Preference">
+        <rdfs:subClassOf rdf:resource="http://example.com/MovieExample#Genre_Preference"/>
+        <owl:disjointWith rdf:resource="http://example.com/MovieExample#Positive_Genre_Preference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#Positive_Genre_Preference -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#Positive_Genre_Preference">
+        <rdfs:subClassOf rdf:resource="http://example.com/MovieExample#Genre_Preference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#Romance -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#Romance">
+        <rdfs:subClassOf rdf:resource="http://example.com/MovieExample#Movie_Genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#RomanceMovie -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#RomanceMovie">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.com/MovieExample#Movie"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.com/MovieExample#belongs_To_Genre"/>
+                        <owl:someValuesFrom rdf:resource="http://example.com/MovieExample#Romance"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://example.com/MovieExample#Movie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#SciFi -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#SciFi">
+        <rdfs:subClassOf rdf:resource="http://example.com/MovieExample#Movie_Genre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#SciFiMovie -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#SciFiMovie">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://example.com/MovieExample#Movie"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://example.com/MovieExample#belongs_To_Genre"/>
+                        <owl:someValuesFrom rdf:resource="http://example.com/MovieExample#SciFi"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://example.com/MovieExample#Movie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://example.com/MovieExample#User -->
+
+    <owl:Class rdf:about="http://example.com/MovieExample#User">
+        <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#FunctionalComplex"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://example.com/MovieExample#Genre_Preference"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://purl.org/nemo/gufo#mediates"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://example.com/MovieExample#Movie_Recommendation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.com/MovieExample#Action -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#Action">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#ActionMovie -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#ActionMovie">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#Comedy -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#Comedy">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#ComedyMovie -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#ComedyMovie">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#Drama -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#Drama">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#DramaMovie -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#DramaMovie">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#Genre_Preference -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#Genre_Preference">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#Horror -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#Horror">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#HorrorMovie -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#HorrorMovie">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#Movie -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#Movie">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#Movie_Genre -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#Movie_Genre">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#Movie_Recommendation -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#Movie_Recommendation">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#Movie_Recommendation_App -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#Movie_Recommendation_App">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#Negative_Genre_Preference -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#Negative_Genre_Preference">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#Positive_Genre_Preference -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#Positive_Genre_Preference">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#Recommends -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#Recommends">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#MaterialRelationshipType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#Romance -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#Romance">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#RomanceMovie -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#RomanceMovie">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#SciFi -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#SciFi">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#SciFiMovie -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#SciFiMovie">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#SubKind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#User -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#User">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#Kind"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#alto_compadecida -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#alto_compadecida">
+        <rdf:type rdf:resource="http://example.com/MovieExample#Movie"/>
+        <belongs_To_Genre rdf:resource="http://example.com/MovieExample#comedy01"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#belongs_To_Genre -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#belongs_To_Genre">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#MaterialRelationshipType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#comedy01 -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#comedy01">
+        <rdf:type rdf:resource="http://example.com/MovieExample#Comedy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#friend_Of -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#friend_Of">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#MaterialRelationshipType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#has_Genre_Preference -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#has_Genre_Preference">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#MaterialRelationshipType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#receives_Recommendation_Of -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#receives_Recommendation_Of">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#MaterialRelationshipType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.com/MovieExample#recommends_To -->
+
+    <owl:NamedIndividual rdf:about="http://example.com/MovieExample#recommends_To">
+        <rdf:type rdf:resource="http://purl.org/nemo/gufo#MaterialRelationshipType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://example.com/MovieExample#Action">
+        <rdfs:label xml:lang="en">Action</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#ActionMovie">
+        <rdfs:label xml:lang="en">ActionMovie</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#Comedy">
+        <rdfs:label xml:lang="en">Comedy</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#ComedyMovie">
+        <rdfs:label xml:lang="en">ComedyMovie</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#Drama">
+        <rdfs:label xml:lang="en">Drama</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#DramaMovie">
+        <rdfs:label xml:lang="en">DramaMovie</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#Genre_Preference">
+        <rdfs:label xml:lang="en">Genre_Preference</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#Horror">
+        <rdfs:label xml:lang="en">Horror</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#HorrorMovie">
+        <rdfs:label xml:lang="en">HorrorMovie</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#Movie">
+        <rdfs:label xml:lang="en">Movie</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#Movie_Genre">
+        <rdfs:label xml:lang="en">Movie_Genre</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#Movie_Recommendation">
+        <rdfs:label xml:lang="en">Movie_Recommendation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#Movie_Recommendation_App">
+        <rdfs:label xml:lang="en">Movie_Recommendation_App</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#Negative_Genre_Preference">
+        <rdfs:label xml:lang="en">Negative_Genre_Preference</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#Positive_Genre_Preference">
+        <rdfs:label xml:lang="en">Positive_Genre_Preference</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#Recommends">
+        <rdfs:label xml:lang="en"> recommends</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#Romance">
+        <rdfs:label xml:lang="en">Romance</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#RomanceMovie">
+        <rdfs:label xml:lang="en">RomanceMovie</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#SciFi">
+        <rdfs:label xml:lang="en">SciFi</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#SciFiMovie">
+        <rdfs:label xml:lang="en">SciFiMovie</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#User">
+        <rdfs:label xml:lang="en">User</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#belongs_To_Genre">
+        <rdfs:label xml:lang="en">belongs_To_Genre</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#friend_Of">
+        <rdfs:label xml:lang="en">friend_Of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#has_Genre_Preference">
+        <rdfs:label xml:lang="en">has_Genre_Preference</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#receives_Recommendation_Of">
+        <rdfs:label xml:lang="en">receives_Recommendation_Of</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://example.com/MovieExample#recommends_To">
+        <rdfs:label xml:lang="en">recommends_To</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://example.com/MovieExample#Movie"/>
+            <rdf:Description rdf:about="http://example.com/MovieExample#Movie_Genre"/>
+            <rdf:Description rdf:about="http://example.com/MovieExample#Movie_Recommendation_App"/>
+            <rdf:Description rdf:about="http://example.com/MovieExample#User"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

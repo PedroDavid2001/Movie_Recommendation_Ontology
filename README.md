@@ -22,14 +22,10 @@ The main objective of this example is to demonstrate the integration of differen
 
 ## 2. OntoUML Views
 
-The ontology was divided into three main views to facilitate understanding and maintenance of the conceptual model.
-
 ### 2.1 Movie Recommendation Overview
 
-> General overview of the recommendation domain, including users, movies, genres, and recommendation-related concepts.
-
 <p align="center">
-  <img src="docs/images/movie_recommendation_overview.png" width="800">
+  <img src="utils/Movie Recommendation Overview.png" width="800">
 </p>
 
 ---
